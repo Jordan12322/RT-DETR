@@ -83,7 +83,7 @@ def parse_cli(nargs: List[str]) -> Dict:
     for s in nargs:
         s = s.strip()
         k, v = s.split('=', 1)
-        d = dictify(k, yaml.load(v, Loader=yaml.Loader))
+        d = dictify(k, yaml.safe_load(v, Loader=yaml.Loader))
         cfg = merge_dict(cfg, d)
 
     return cfg
