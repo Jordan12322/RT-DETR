@@ -26,7 +26,7 @@ def load_config(file_path, cfg=dict()):
     assert ext in ['.yml', '.yaml'], "only support yaml files"
 
     with open(file_path) as f:
-        file_cfg = yaml.load(f, Loader=yaml.Loader)
+        file_cfg = yaml.safe_load(f, Loader=yaml.Loader)
         if file_cfg is None:
             return {}
 
