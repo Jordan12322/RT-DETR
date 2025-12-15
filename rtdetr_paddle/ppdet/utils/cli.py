@@ -66,7 +66,7 @@ class ArgsParser(ArgumentParser):
             s = s.strip()
             k, v = s.split('=', 1)
             if '.' not in k:
-                config[k] = yaml.load(v, Loader=yaml.Loader)
+                config[k] = yaml.safe_load(v, Loader=yaml.Loader)
             else:
                 keys = k.split('.')
                 if keys[0] not in config:
