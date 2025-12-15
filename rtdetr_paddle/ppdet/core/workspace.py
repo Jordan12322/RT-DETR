@@ -85,7 +85,7 @@ BASE_KEY = '_BASE_'
 # parse and load _BASE_ recursively
 def _load_config_with_base(file_path):
     with open(file_path) as f:
-        file_cfg = yaml.load(f, Loader=yaml.Loader)
+        file_cfg = yaml.safe_load(f, Loader=yaml.Loader)
 
     # NOTE: cfgs outside have higher priority than cfgs in _BASE_
     if BASE_KEY in file_cfg:
