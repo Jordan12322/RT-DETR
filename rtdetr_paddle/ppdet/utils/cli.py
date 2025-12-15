@@ -74,7 +74,7 @@ class ArgsParser(ArgumentParser):
                 cur = config[keys[0]]
                 for idx, key in enumerate(keys[1:]):
                     if idx == len(keys) - 2:
-                        cur[key] = yaml.load(v, Loader=yaml.Loader)
+                        cur[key] = yaml.safe_load(v, Loader=yaml.Loader)
                     else:
                         cur[key] = {}
                         cur = cur[key]
